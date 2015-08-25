@@ -1,6 +1,6 @@
 Tuesday 25 August 2015
 
-# provo-garage-sale
+# final project at DevMountain Coding Bootcamp
 
 We began with the name "Provo Garage Sale" and ended with "Local Yard Sales".
 
