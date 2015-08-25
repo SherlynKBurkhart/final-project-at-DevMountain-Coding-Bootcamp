@@ -1,132 +1,157 @@
+beginning of file -->
+
 <!DOCTYPE html>
-  <!-- app name for internal use -->
+<!-- app name for internal use -->
 <html ng-app="treasureHunters">
-  <head>
+  	<head>
+	  	<title>Local Yard Sales</title>
 
-	  <title>Local Yard Sales</title>
+    	<!-- links -->
+    	<link rel='shortcut icon' type='image/png' href="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQptLc_SZrhIiO60mSIUxA_70OAV5KUyF0B_hr22MBL1_szc_6Z">  
+	  	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	  	<link rel="stylesheet" type="text/css" href="styles/style.css">
+  	</head>
 
-      <!-- links -->
-    <link rel='shortcut icon' type='image/png' href="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQptLc_SZrhIiO60mSIUxA_70OAV5KUyF0B_hr22MBL1_szc_6Z">  
-	  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	  <link rel="stylesheet" type="text/css" href="styles/style.css">
-  </head>
+  	<!-- main controller -->
+  	<body ng-controller="mainCtrl">
+    	<div id="wrapper">
 
-    <!-- main controller -->
-  <body ng-controller="mainCtrl">
-    <div id="wrapper">
+      		<!-- top toolbar -->
+      		<md-content class="blueToolbar">
+        		<md-toolbar class="topToolbar md-toolbar-tools" >
+          			<div layout="row">
 
-      <!-- TOP TOOLBAR -->
-      <md-content class="blueToolbar">
-      <md-toolbar class="topToolbar md-toolbar-tools" >
-        <div layout="row">
-          <!-- home button -->
-          <div class="homeBtn" flex="20" flex-sm="10">
-            <md-input-container class="buttonPadding">
-              <a href="/#/home">
-              <md-button>
-                <i class="fa fa-home fa-lg">
-                 </i>
-              <span hide-sm>Home</span>
-                </md-button>
-              </a>
-            </md-input-container>
-          </div>
+			            <!-- "HOME" button -->
+			            <div class="homeBtn" flex="20" flex-sm="10">
+			              <md-input-container class="buttonPadding">
+			                <a href="/#/home">
+			                <md-button>
+			                  <i class="fa fa-home fa-lg">
+			                   </i>
+			                <span hide-sm>Home</span>
+			                  </md-button>
+			                </a>
+			              </md-input-container>
+			            </div>
 
-            <!-- add listing button -->
-          <div class="addListingBtn" flex="30" flex-sm="10">
-            <md-input-container ng-click="addClick($event)" class="buttonPadding">
-              <!-- <a href="#/listing"> -->
-                <md-button>
-                  <i class="fa fa-plus-square fa-lg">
-                  </i>
-                 <span hide-sm>Add Listing</span>
-                </md-button>
-              <!-- </a> -->
-            </md-input-container>
-          </div>
+			            <!-- "ADD LISTING" button -->
+			            <div class="addListingBtn" flex="30" flex-sm="10">
+			              <md-input-container ng-click="addClick($event)" class="buttonPadding">
+			                  <md-button>
+			                    <i class="fa fa-plus-square fa-lg">
+			                    </i>
+			                   <span hide-sm>Add Listing</span>
+			                  </md-button>
+			              </md-input-container>
+			            </div>
 
-            <!-- update my listing button -->
-          <div class="myListingBtn" flex="30" flex-sm="10">
-            <md-input-container ng-click="myListingClick($event)" class="buttonPadding">
-              <!-- <a href="#/update"> -->
-                <md-button>
-                  <i class="fa fa-user fa-lg">
-                  </i>
-                  <span hide-sm>My Listing</span>
-                </md-button>
-              <!-- </a> -->
-            </md-input-container>
-          </div>
+			            <!-- "MY LISTING" button -->
+			            <div class="myListingBtn" flex="30" flex-sm="10">
+			              <md-input-container ng-click="myListingClick($event)" class="buttonPadding">
+			                  <md-button>
+			                    <i class="fa fa-user fa-lg">
+			                    </i>
+			                    <span hide-sm>My Listing</span>
+			                  </md-button>
+			              </md-input-container>
+			            </div>
 
-          <!-- facebook login button -->
-          <div class="facebookBtn" ng-hide="currentUser" flex="30" flex-sm="10">
-            <md-input-container class="buttonPadding">
-              <a href="/auth/facebook">
-                <md-button>
-                  <i class="fa fa-facebook-official fa-lg">
-                  </i>
-                  <span hide-sm>Login</span>
-                </md-button>
-              </a>
-            </md-input-container>
-          </div>
-            <!-- facebook current user button -->
-          <div class="facebookBtn" ng-show="currentUser" flex="30" flex-sm="5">
-            <md-input-container class="buttonPadding">
-                <!-- user logout button-->
-              <a href="/logout" flex="30" flex-sm="5">
-                <md-button>
-                  <i class="fa fa-sign-out fa-lg">
-                  </i>
-                  <span hide-sm>Logout</span>
-                </md-button>
-              </a>
-            </md-input-container>
-          </div>
-        </div>
-            <span class="welcomeUser" ng-show="currentUser">
-              Welcome {{currentUser.name}}
-            </span>
-      </md-toolbar>
-    </md-content>
+			            <!-- "f LOGIN" button -->
+			            <div class="facebookBtn" ng-hide="currentUser" flex="30" flex-sm="10">
+			              <md-input-container class="buttonPadding">
+			                <a href="/auth/facebook">
+			                  <md-button>
+			                    <i class="fa fa-facebook-official fa-lg">
+			                    </i>
+			                    <span hide-sm>Login</span>
+			                  </md-button>
+			                </a>
+			              </md-input-container>
+			            </div>
 
-    <!-- connected views -->
-  <div id="body">
-  <ng-view>
-  </ng-view>
-  </div>
-      <!-- footer content -->
-    <div class="footer" >
+			            <!-- "LOGOUT" button -->
+			            <div class="facebookBtn" ng-show="currentUser" flex="30" flex-sm="5">
+			              <md-input-container class="buttonPadding">
+			                <a href="/logout" flex="30" flex-sm="5">
+			                  <md-button>
+			                    <i class="fa fa-sign-out fa-lg">
+			                    </i>
+			                    <span hide-sm>Logout</span>
+			                  </md-button>
+			                </a>
+			              </md-input-container>
+			            </div>
 
-        <div>all rights reserved 2015</div>
-         <div class="footerContent"><md-button> Like Us on Facebook</md-button>
-      <a href="#/terms">  <md-button class="footerBtn"> Terms and Conditions </md-button></a>
-     <a href="#/privacy">   <md-button class="footerBtn"> Privacy Policy </md-button></a>
-      <a href="#/about">  <md-button class="footerBtn"> About Us </md-button></a>
-      </div>
-    </div>
-  </div> 
+          			</div>
 
-    <!-- Script Links -->
-    <script src="bower_components/angular/angular.js"></script>
+          			<!-- "WELCOME (USER NAME)" -->
+          			<span class="welcomeUser" ng-show="currentUser">
+            		Welcome {{currentUser.name}}
+          			</span>
+
+        		</md-toolbar>
+      		</md-content>
+
+		   	<!-- connected views -->
+		   	<div id="body">
+		       	<ng-view>
+		       	</ng-view>
+		   	</div>
+        
+      		<!-- footer content -->
+     		<div class="footer" >
+        		<div>all rights reserved 2015
+        		</div>
+
+        		<div class="footerContent">
+
+        		    <!-- like us on facebook -->
+          			<md-button> Like Us on Facebook
+          			</md-button>
+
+          			<!-- terms and conditions -->
+          			<a href="#/terms">  
+            			<md-button class="footerBtn"> Terms and Conditions  
+            			</md-button>
+          			</a>
+
+          			<!-- privacy policy -->
+          			<a href="#/privacy">   
+            			<md-button class="footerBtn"> Privacy Policy 
+            			</md-button>
+            		</a>
+
+            		<!-- about us -->
+          			<a href="#/about">    
+            			<md-button class="footerBtn"> About Us 
+            			</md-button>
+          			</a>
+        		</div>
+      		</div> 
+
+    	<!-- Script Links -->
+    	<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="bower_components/angular-aria/angular-aria.js"></script>
 		<script src="bower_components/angular-animate/angular-animate.js"></script>
 		<script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
-      <!-- local files -->
-    <script src="app/app.js"></script>
-    <script src="app/mainCtrl.js"></script>
-    <script src="app/directives/listingDir/listingDir.js"></script>
-    <script src="app/directives/mainDir/mainDir.js"></script>
-    <script src="app/services/authService.js"></script>
-    <script src="app/services/mainService.js"></script>
-    <!-- // <script src="app/services/tempservice.js"></script> -->
-    <script src="app/views/home/homeCtrl.js"></script>
-    <script src="app/views/listing/listingCtrl.js"></script>
-    <script src="app/views/update/updateCtrl.js"></script>
-  </body>
+    	<script src="bower_components/lodash/lodash.js"></script>
+    	<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+     
+    	<!-- local files -->
+    	<script src="app/app.js"></script>
+    	<script src="app/mainCtrl.js"></script>
+    	<script src="app/directives/listingDir/listingDir.js"></script>
+    	<script src="app/directives/mainDir/mainDir.js"></script>
+    	<script src="app/services/authService.js"></script>
+    	<script src="app/services/mainService.js"></script>
+    	<script src="app/services/tempService.js"></script>
+    	<script src="app/views/home/homeCtrl.js"></script>
+    	<script src="app/views/listing/listingCtrl.js"></script>
+    	<script src="app/views/update/updateCtrl.js"></script>
+  	</body>
 </html>
+
+<!-- end of file

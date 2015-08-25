@@ -1,55 +1,57 @@
-<!-- Main directive html file -->
+<!-- beginning of file - "HOME" page -->
 
-<!-- listing directive -->
+<!-- "AREA LISTINGS" "FAVORITES" "FACEBOOK LOGIN" -->
 <div class="listingColumn tabsdemoStaticTabs">
-<md-content class="md-padding">
- <md-tabs class="areaListings" md-selected="data.selectedIndex">
-   <md-tab id="tab1">
-     <md-tab-label>Area Listings
-     </md-tab-label>
+	<md-content class="md-padding">
+	 	<md-tabs class="areaListings" 
+	 		md-selected="data.selectedIndex">
 
-     <md-tab-body>
-       <listing-dir ng-repeat="listing in theListings | filter:{startDate : dateModified} track by listing._id">
-       </listing-dir>
-     </md-tab-body>
-   </md-tab>
+	 		<!-- "AREA LISTINGS" -->  
+		   <md-tab id="tab1">
+		     	<md-tab-label>Area Listings
+		     	</md-tab-label>
+		     	<md-tab-body>
+		       	<listing-dir ng-repeat="listing in theListings | filter:{startDate : dateModified} track by listing._id">
+		       	</listing-dir>
+		     	</md-tab-body>
+		   </md-tab>
 
-   <md-tab>
-     <md-tab-label>Favorites</md-tab-label>
-     </md-tab-label>
+	 		<!-- "FAVORITES" label -->  		   
+	   	<md-tab>
+	     		<md-tab-label>Favorites
+	     		</md-tab-label>
+	     		<md-tab-body>
+	       		<md-input-container ng-hide="favorites" class="centerfav">
+	         		
+	         		<!-- "FACEBOOK LOGIN" -->
+	         		<a href="/auth/facebook">
+	           			<md-button class="loginListing">
+	             			<div>Facebook Login
+	             			</div>
+	             			<i class="fa fa-facebook-official fa-lg">
+	             			</i>
+	           			</md-button>
+	         		</a>
+	       		</md-input-container>
 
-     <md-tab-body>
-       <md-input-container ng-hide="favorites" class="centerfav">
-         <a href="/auth/facebook">
-           <md-button class="loginListing">
-             <div>Facebook Login
-             </div>
-             <i class="fa fa-facebook-official fa-lg">
-             </i>
-           </md-button>
-         </a>
-       </md-input-container>
+	       		<!-- "FAVORITES" list -->
+	       		<md-tab-body ng-show="favorites">
+	         		<listing-dir ng-repeat="listing in favorites track by listing._id">
+	         		</listing-dir>
+	       		</md-tab-body>
+	     		</md-tab-body>
+	     	</md-tab>
 
-       <md-tab-body ng-show="favorites">
-         <listing-dir ng-repeat="listing in favorites track by listing._id">
-         </listing-dir>
-       </md-tab-body>
-     </md-tab-body>
-
- </md-tabs>
-</md-content>
+	 	</md-tabs>
+	</md-content>
 </div>
 
 <!-- garage sale locations map -->
 <div class="map-container">
-<ui-gmap-google-map center="map.center" pan="true" zoom="map.zoom">
- <ui-gmap-markers models="theListings" coords="'loc'" idkey="'_id'" click="testClick" icon="'icon'">
- </ui-gmap-markers>
-</ui-gmap-google-map>
+	<ui-gmap-google-map center="map.center" pan="true" zoom="map.zoom">
+ 		<ui-gmap-markers models="theListings" coords="'loc'" idkey="'_id'" click="testClick" icon="'icon'">
+ 		</ui-gmap-markers>
+	</ui-gmap-google-map>
 </div>
 
-<!--
-<div class="map">
-<div style="height: 700px;"> Cool
-</div>
-</div> -->
+<!-- end of file -->

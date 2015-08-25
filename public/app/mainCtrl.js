@@ -1,4 +1,4 @@
-// main control file
+// beginning of file
 
 var app = angular.module('treasureHunters');
 
@@ -6,11 +6,10 @@ app.controller('mainCtrl', function($scope, authService, $location, mainService,
 
     // User State 
     $scope.$watch(authService.isLoggedIn, function (isLoggedIn){
-			$scope.isLoggedIn = isLoggedIn;
-			$scope.currentUser = authService.currentUser();
-			console.log($scope.currentUser);
-		});
-
+		$scope.isLoggedIn = isLoggedIn;
+		$scope.currentUser = authService.currentUser();
+		console.log($scope.currentUser);
+	});
 
     $scope.addClick = function(ev) {
         console.log("hit add")
@@ -25,7 +24,6 @@ app.controller('mainCtrl', function($scope, authService, $location, mainService,
                 .ok('Ok, Got it!')
                 .targetEvent(ev)
             );
-
         };
     };
 
@@ -44,3 +42,5 @@ app.controller('mainCtrl', function($scope, authService, $location, mainService,
         }
     };
 });
+
+// end of file

@@ -1,4 +1,4 @@
-// template service file
+// beginning of file
 
 var app = angular.module('treasureHunters');
 
@@ -7,7 +7,7 @@ app.service('mainService', function($http, $q) {
 	this.getAllListings = function() {
 		return $http({
 			method: 'GET',
-			url: 'http://localhost:8040/api/Listings'
+			url: 'http://localhost:8060/api/Listings'
 		}).then(function(response){
 			return response.data;
 		})
@@ -16,7 +16,7 @@ app.service('mainService', function($http, $q) {
 	this.createListing = function(listingInfo) {
 		return $http({
 			method: 'POST',
-			url: 'http://localhost:8040/api/Listing/create',
+			url: 'http://localhost:8060/api/Listing/create',
 			data: listingInfo
 		}).then(function(response){
 			return response.data;
@@ -26,7 +26,7 @@ app.service('mainService', function($http, $q) {
 	this.getFavorites = function(userId) {
 		return $http({
 			method: 'GET',
-			url: 'http://localhost:8040/api/user/favorites/' + userId
+			url: 'http://localhost:8060/api/user/favorites/' + userId
 		}).then(function(response){
 			return response.data;
 		})
@@ -35,7 +35,7 @@ app.service('mainService', function($http, $q) {
 	this.removeListing = function(listingId) {
 		return $http({
 			method: 'DELETE',
-			url: 'http://localhost:8040/api/Listing/' + listingId
+			url: 'http://localhost:8060/api/Listing/' + listingId
 		}).then(function(response){
 			return response.data;
 		})
@@ -44,7 +44,7 @@ app.service('mainService', function($http, $q) {
 	this.updateListing = function(listingId, modifiedListing) {
 		return $http({
 			method: 'PUT',
-			url: 'http://localhost:8040/api/Listing/' + listingId,
+			url: 'http://localhost:8060/api/Listing/' + listingId,
 			data: modifiedListing
 		}).then(function(response){
 			return response.data;
@@ -54,7 +54,7 @@ app.service('mainService', function($http, $q) {
 	this.listingByUser = function(userId) {
 		return $http({
 			method: 'GET',
-			url: 'http://localhost:8040/api/Listing/user/' + userId
+			url: 'http://localhost:8060/api/Listing/user/' + userId
 		}).then(function(response){
 			return response.data;
 		})
@@ -63,7 +63,7 @@ app.service('mainService', function($http, $q) {
 	this.getOneListing = function(listingId) {
 		return $http({
 			method: 'GET',
-			url: 'http://localhost:8040/api/Listing/' + listingId
+			url: 'http://localhost:8060/api/Listing/' + listingId
 		}).then(function(response){
 			return response.data;
 		})
@@ -72,7 +72,7 @@ app.service('mainService', function($http, $q) {
 	this.addFavorite = function(listingId, userId) {
 		return $http({
 			method: 'PUT',
-			url: 'http://localhost:8040/api/user/favorite/add/' + userId + '?listing=' + listingId
+			url: 'http://localhost:8060/api/user/favorite/add/' + userId + '?listing=' + listingId
 		}).then(function(response){
 			return response.data;
 		})
@@ -81,10 +81,12 @@ app.service('mainService', function($http, $q) {
 	this.removeFavorite = function(listingId, userId) {
 		return $http({
 			method: 'PUT',
-			url: 'http://localhost:8040/api/user/favorite/remove/' + userId + '?listing=' + listingId
+			url: 'http://localhost:8060/api/user/favorite/remove/' + userId + '?listing=' + listingId
 		}).then(function(response){
 			return response.data;
 		})
 	}
 
 })
+
+// end of file

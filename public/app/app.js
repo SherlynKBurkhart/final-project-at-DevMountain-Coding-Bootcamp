@@ -1,15 +1,17 @@
-// application file
+// beginning of file
 
 var app = angular.module('treasureHunters', ["ngRoute", "ngMaterial", "ngAnimate", "uiGmapgoogle-maps"]);
 
 app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
-                    // Routes
+                    
+// Routes
 $routeProvider
 	.when('/home', {
 		templateUrl: 'app/views/home/homeTmpl.html',
 		controller: 'homeCtrl',
 		resolve: {
-			    // accessing listing by location
+
+			// accessing listing by location
 			listings: function(mainService, $q){
 				var dfd = $q.defer();
 				navigator.geolocation.getCurrentPosition(function(position){
@@ -27,10 +29,12 @@ $routeProvider
 			// }
 		}
 	})
+
 	.when('/listing', {
 		templateUrl: 'app/views/listing/listingTmpl.html',
 		controller: 'listingCtrl'
 	})
+
 	.when('/update', {
 		templateUrl: 'app/views/update/updateTmpl.html',
 		controller: 'updateCtrl',
@@ -47,18 +51,22 @@ $routeProvider
 			}
 		}
 	})
+
 	.when('/user', {
 		templateUrl: 'app/views/user/userTmpl.html',
 		controller: 'userCtrl'
 	})
+
 	.when('/terms', {
 		templateUrl: 'app/views/home/footer/terms.html',
 		controller: 'mainCtrl'
 	})
+
 	.when('/privacy', {
 		templateUrl: 'app/views/home/footer/privacy.html',
 		controller: 'mainCtrl'
 	})
+
 	.when('/about', {
 		templateUrl: 'app/views/home/footer/about.html',
 		controller: 'mainCtrl'
@@ -70,11 +78,12 @@ $routeProvider
 
 	// Googe Map api
 
-uiGmapGoogleMapApiProvider.configure({
-	key: 'AIzaSyBifIcf6wbqjTZfAcuKKBjp1wk0XRMA_wA',
-	v: '3.17',
-	libraries: 'weather, geometry, visualization'
-})
-
+	uiGmapGoogleMapApiProvider.configure({
+		key: 'AIzaSyBifIcf6wbqjTZfAcuKKBjp1wk0XRMA_wA',
+		v: '3.17',
+		libraries: 'weather, geometry, visualization'
+	})
 
 });
+
+// end of file

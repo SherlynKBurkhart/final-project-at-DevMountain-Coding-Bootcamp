@@ -1,5 +1,6 @@
-// home controller file
+// beginning of file
 
+// "HOME" page search by date, location, or distance
 var app = angular.module('treasureHunters');
 
 app.controller('homeCtrl', function($scope, listings, mainService) {
@@ -15,28 +16,31 @@ app.controller('homeCtrl', function($scope, listings, mainService) {
 	$scope.favorites = $scope.currentUser ? $scope.currentUser.favorites : false;
 	$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 12 };
 
-                      // Search by Distance
-  $scope.distances = ["5", "15", "25"];
+  	// search by date
+  	$scope.dateSearch = new Date;
+  	$scope.dateSearch.setHours(0,0,0,0);
+  	$scope.dateSearch.toISOString();
 
-                      // Search by location
+  	$scope.dateFilter = function (date) {
+      	$scope.dateModified = date;
+      	$scope.dateModified.setHours(0,0,0,0)
+      	$scope.dateModified = $scope.dateModified.toISOString();
+  	}
 
+    // search by location
 	$scope.submitLocSearch = function(location, distance){
-  	mainService.geocode(location).then(function(res) {
-  		$scope.map.center.latitude = res.data.latitude;
-  		$scope.map.center.longitude = res.data.longitude;
-  		mainService.getListings([res.data.longitude, res.data.latitude], distance).then(function(resp){
-          	$scope.theListings = resp;
-      	})
-  	})
-  };
+  		mainService.geocode(location).then(function(res) {
+  			$scope.map.center.latitude = res.data.latitude;
+  			$scope.map.center.longitude = res.data.longitude;
+  			mainService.getListings([res.data.longitude, res.data.latitude], distance).then(function(resp){
+          		$scope.theListings = resp;
+          	})	
+  		})		
+  	};	
 
-  $scope.dateSearch = new Date;
-  $scope.dateSearch.setHours(0,0,0,0);
-  $scope.dateSearch.toISOString();
+  	// search by distance
+  	$scope.distances = ["5", "15", "25"];
 
-  $scope.dateFilter = function (date) {
-      $scope.dateModified = date;
-      $scope.dateModified.setHours(0,0,0,0)
-      $scope.dateModified = $scope.dateModified.toISOString();
-  }
 });
+
+// end of file

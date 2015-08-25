@@ -1,4 +1,4 @@
-// authorization service file
+// beginning of file
 
 var app = angular.module('treasureHunters');
 
@@ -6,6 +6,7 @@ app.service('authService', function($http, $q){
 
 	var currentUser;
 	this.login = login;
+	
 	var login = function() {
 		$http({
 			method: 'GET',
@@ -20,7 +21,6 @@ app.service('authService', function($http, $q){
 	};
 
 	this.logout = function(){
-
 	};
 
 	this.isLoggedIn = function(){
@@ -30,6 +30,9 @@ app.service('authService', function($http, $q){
 	this.currentUser = function(){
 		return currentUser;
 	};
+
 	login();
 
 });
+
+// end of file

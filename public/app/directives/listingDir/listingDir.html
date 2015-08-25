@@ -1,40 +1,65 @@
-<!-- "TITLE: TIME: ADDRESS: template on "UPDATE MY LISTING" page -->
+<!-- beginning of file - "MY LISTING" page -->
+
+<!-- "Title TIME: ADDRESS:" template -->
 <md-card class="md-card"
-ng-class="{'clicked-listing': listing.clicked}">
-<md-card-content class="listingSize">
-	<md-toolbar class="listingClick"
-		ng-click="listingClick(listing)"
-		ng-class="{'expandcollapse-heading-collapsed': !listing.clicked, 'expandcollapse-heading-expanded': listing.clicked}" >
-		<span class="listingTitle">
-			<strong>{{listing.title}}</strong>
-				<i title="Add/Remove Favorites" ng-class="listing.favorite ? 'fa fa-star fa-lg' : 'fa fa-star-o fa-lg'"
+	ng-class="{'clicked-listing': listing.clicked}">
+	<md-card-content class="listingSize">
+
+		<!-- "template click function -->
+		<md-toolbar class="listingClick"
+			ng-click="listingClick(listing)"
+			ng-class="{'expandcollapse-heading-collapsed': !listing.clicked, 'expandcollapse-heading-expanded': listing.clicked}" >
+
+			<!-- listing title -->
+			<span class="listingTitle">
+				<strong>{{listing.title}}
+				</strong>
+				<i title="Add/Remove Favorites" 
+					ng-class="listing.favorite ? 'fa fa-star fa-lg' : 'fa fa-star-o fa-lg'"
 					ng-click="toggleFavorite(listing); $event.stopPropagation();"
 					class="starChecked">
 				</i>
-		</span>
-		<form action="http://maps.google.com/maps" method="get" target="_blank">
-		<div>
-		<strong>Time:</strong>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				{{listing.time | date:"shortTime"}}
+			</span>
+
+			<!-- google maps link -->
+			<form action="http://maps.google.com/maps" 
+				method="get" 
+				target="_blank">
+			
+				<!-- time -->
+				<div>
+					<strong>Time:
+					</strong>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					{{listing.time | date:"shortTime"}}
+				</div>
+
+				<!-- address -->
+				<div>
+					<strong>Address:
+					</strong>
+
+					<!-- google map directions -->
+					<input class="getDirectionsBtn" 
+						type="submit" 
+						name="daddr" 
+						value="{{listing.address.street}}&#x00A;{{listing.address.city}}, {{listing.address.state}} {{listing.address.zip}}"/>
+				</div>
+
+			</form>
+		</md-toolbar>
+
+		<div ng-show="listing.clicked" 
+			class="showActive" 
+			id="description">
+			<div>
+				<strong>Description:
+				</strong>
+				{{listing.description}}
+			</div>
 		</div>
 
-		<div>
-			<strong>Address:
-			</strong>
-				<!-- 		GOOGLE DIRECTION -->
-				<input class="getDirectionsBtn" type="submit" name="daddr" value="{{listing.address.street}}&#x00A;{{listing.address.city}}, {{listing.address.state}} {{listing.address.zip}}"/>
-		</form>
-
-	</div>
-	</md-toolbar>
-
-	<div ng-show="listing.clicked" class="showActive" id="description">
-		<div>
-			<strong>Description:
-			</strong>
-			{{listing.description}}
-		</div>
-	</div>
-</md-card-content>
+	</md-card-content>
 </md-card>
+
+<!-- end of file -->

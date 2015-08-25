@@ -1,4 +1,4 @@
-// Listing directive
+// beginning of file
 
 var app = angular.module('treasureHunters');
 
@@ -7,15 +7,17 @@ app.directive('listingDir', function(){
 		restrict: "EA",
 		templateUrl: "app/directives/listingDir/listingDir.html",
 		link: function (elem, attr, scope){
-
 		},
+
 		controller: function($scope, mainService){
 			$scope.toggleFavorite = function(listing){
 				if(listing.favorite){
 					mainService.removeFavorite(listing._id).then(function(res){
 						listing.favorite = false;
 						console.log($scope.currentUser.favorites);
-						$scope.currentUser.favorites = updateFavorites(listing, $scope.theListings, $scope.favorites);
+						$scope.currentUser.favorites = updateFavorites(listing, 
+							$scope.theListings, 
+							$scope.favorites);
 						console.log($scope.currentUser.favorites);
 						// $scope.matchFavorites();
 					}, function(err){
@@ -26,7 +28,9 @@ app.directive('listingDir', function(){
 					mainService.addFavorite(listing._id).then(function(res){
 						listing.favorite = true;
 						console.log($scope.currentUser.favorites);
-						$scope.currentUser.favorites = updateFavorites(listing, $scope.theListings, $scope.favorites);
+						$scope.currentUser.favorites = updateFavorites(listing, 
+							$scope.theListings, 
+							$scope.favorites);
 						console.log($scope.currentUser.favorites);
 						// $scope.matchFavorites();
 					}, function(err){
@@ -54,11 +58,13 @@ app.directive('listingDir', function(){
 				checked = false;
 			}
 			$scope.next = function() {
-      	$scope.data.selectedIndex = Math.min($scope.data.selectedIndex + 1, 2) ;
-    	};
-  		$scope.previous = function() {
-    		$scope.data.selectedIndex = Math.max($scope.data.selectedIndex - 1, 0);
-  		};
+      		$scope.data.selectedIndex = Math.min($scope.data.selectedIndex + 1, 2) ;
+    		};
+  			$scope.previous = function() {
+    			$scope.data.selectedIndex = Math.max($scope.data.selectedIndex - 1, 0);
+  			};
 		}
 	}
 });
+
+// end of file

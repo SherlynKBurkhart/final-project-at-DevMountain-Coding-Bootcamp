@@ -1,3 +1,6 @@
+// beginning of file
+
+// required files to be installed
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var express = require('express');
@@ -6,14 +9,14 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
+// required files inhouse
 var userCtrl = require('./server-assets/controllers/userCtrl');
 var listingCtrl = require('./server-assets/controllers/listingCtrl');
-
 var Listing = require('./server-assets/models/listingModel.js');
 var User = require('./server-assets/models/userModel.js');
 
 var app = express();
-var port = process.env.EXPRESS_PORT || 8040;
+var port = process.env.EXPRESS_PORT || 8060;
 var mongoUri = 'mongodb://localhost:27017/PTH';
 
 console.log(777, process.env)
@@ -22,11 +25,11 @@ passport.use(new FacebookStrategy({
     clientID: 855831487806174,
     clientSecret: 'ebab77d2f0a597cabc8c0bb10cef28d6',
     callbackURL: '/auth/facebook/callback'
-  }, function(accessToken, refreshToken, profile, done) {
+}, function(accessToken, refreshToken, profile, done) {
     userCtrl.create(profile, done);
- }));
+}));
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
@@ -41,10 +44,12 @@ app.use(passport.session());
 app.post('/api/user/create', userCtrl.create);
 app.get('/api/user/favorites/:id', userCtrl.favorites);
 app.get('/api/user/favorites', userCtrl.favoritesPlain);
+
 // app.put('/api/user/favorite/add/:id', userCtrl.addFavorite);
 app.put('/api/user/favorite/add', userCtrl.addFavorite);
 app.put('/api/user/favorite/remove/:id', userCtrl.removeFavorite);
 app.get('/api/user', userCtrl.getUserPopulated);
+
 // Unused
 // app.put('/api/user/favorites/:id', userCtrl.modifyFavorites);
 
@@ -58,7 +63,6 @@ app.get('/api/Listings', listingCtrl.getAllListings);
 app.get('/api/Listings/:lon/:lat', listingCtrl.getByArea);
 
 app.get('/api/geocode/', listingCtrl.geocode);
-
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/#/home')
@@ -82,6 +86,9 @@ mongoose.connect(mongoUri);
 mongoose.connection.once('open', function(){
   console.log('db connected');
 })
+
 app.listen(port, function(){
   console.log('listening on port:', port);
 });
+
+// end of file

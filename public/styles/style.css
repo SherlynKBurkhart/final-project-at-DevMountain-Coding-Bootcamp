@@ -1,13 +1,15 @@
-html, body {
+/*beginning of file*/
+
+html, body{
 	background-color: #EEEEEE;
 	height: 100%;
 }
 /*tool bars*/
-.topToolbar {
+.topToolbar{
 	background-color: #3F51B5;
 }
 
-.secondToolbar {
+.secondToolbar{
 	background: #FFAB40;
 	height: 60px;
 }
@@ -16,7 +18,7 @@ html, body {
 	padding: 0px;
 }
 
-.searchByLocation {
+.searchByLocation{
 	font-size: 14px;
 	font-weight: bold;
 	padding-left: 10px;
@@ -25,7 +27,7 @@ html, body {
 	padding-top: 0px;
 }
 
-.distanceSearch {
+.distanceSearch{
 	color: black;
 	font-size: 15px;
 	padding-top: 13px;
@@ -40,15 +42,17 @@ html, body {
 	font-size: 15px;
 	padding-bottom: 2px;
 	padding-left: 20px;
+	font-weight: bold;
 }
+
 #input_4{
 	min-width: 150px;
 }
+
 .siteName{
 	padding-top: 6px;
 	font-weight: bold;
 	font-size: 45px;
-
 	word-spacing: 9px;
 	text-align: center;
 }
@@ -61,7 +65,7 @@ html, body {
 }
 
 /*map*/
-main-dir {
+main-dir{
 	display: flex;
 }
 
@@ -69,7 +73,7 @@ main-dir {
 	padding-bottom: 4px;
 }
 
-.map-container {
+.map-container{
 	height: 100%;
 	width: 100%;
 	padding-top: 10px;
@@ -78,20 +82,19 @@ main-dir {
 	padding-left: 2px;
 }
 
-.angular-google-map-container {
+.angular-google-map-container{
 	height: 546px;
 }
 
 
 /*listing card information*/
-.myListingsCardTitle {
-	text-align:center;
+.myListingsCardTitle{
+	text-align: center;
 	font-size: 24px;
 	font-weight: bold;
 }
 
 .getDirectionsBtn{
-
 	background-color: #3F51B5;
 	color: white;
 	text-align: left;
@@ -99,12 +102,12 @@ main-dir {
 	border-radius: 2px;
 }
 
-.listingPopOut {
-	font-size: 14px;git
+.listingPopOut{
+	font-size: 14px;
 	font-weight: bold;
 }
 
-.listingColumn {
+.listingColumn{
 	margin: 10px;
 	height: 526px;
 	overflow: scroll;
@@ -112,7 +115,7 @@ main-dir {
 	max-width: 430px;
 }
 
-.listingCard {
+.listingCard{
 	font-size: 15px;
 }
 
@@ -125,23 +128,23 @@ main-dir {
 	min-height: 29px;
 }
 
-.clicked-listing {
+.clicked-listing{
 	background-color: #FFAB40;
 }
 
-.listingClick {
+.listingClick{
 	font-size: 15px;
 	padding: 5px;
 	cursor: pointer;
 }
 
-.starChecked {
+.starChecked{
 	color: #E9DB00;
 	float: right;
 	padding-right: 5px;
 }
 
-.showActive {
+.showActive{
 	font-size: 14px;
 	padding-left: 5px;
 	padding-top: 3px;
@@ -165,20 +168,20 @@ md-tabs md-ink-bar{
 	background-color: #FFAB40;
 }
 
-.tabsdemoStaticTabs md-tab-content:nth-child(1) {
+.tabsdemoStaticTabs md-tab-content:nth-child(1){
 	background-color: #EEEEEE;
 }
 
-.tabsdemoStaticTabs md-tab-content:nth-child(2) {
+.tabsdemoStaticTabs md-tab-content:nth-child(2){
 	background-color: #EEEEEE;
 }
 
 .expandcollapse-heading-collapsed:focus{
-	outline:none;
+	outline: none;
 }
 
 .expandcollapse-heading-expanded:focus{
-	outline:none;
+	outline: none;
 }
 
 .buttonPadding{
@@ -191,7 +194,7 @@ i{
 }
 
 i:focus{
-	outline:none;
+	outline: none;
 }
 
 .listingTitle{
@@ -200,37 +203,33 @@ i:focus{
 }
 
 /*listing form*/
-.updateMyListingTitle, .addMyListingTitle {
-	text-align:center;
+.updateMyListingTitle, .addMyListingTitle{
+	text-align: center;
 	font-size: 24px;
 	font-weight: bold;
-	color: #3F51B5
+	color: #3F51B5;
 }
 
-.submitBtn {
+.submitBtn{
 	background-color: #3F51B5;
 	width: 50%;
 	align-self: center;
 	margin-top: 15px;
 }
 
-#removeBtn {
+#removeBtn{
 	background-color: red;
 	font-size: 0.7em;
 	padding: 3px;
 }
 
-#removeDiv {
+#removeDiv{
 	background-color: #E0E0E0;
 	text-align: top;
 }
 
-.areaListings {
+.areaListings{
 	background-color: #FFAB40;
-}
-
-.listingSize{
-
 }
 
 #tab-content-8{
@@ -264,7 +263,7 @@ i:focus{
 	padding-bottom: 83px;
 }
 
-.footer {
+.footer{
 	background: #FFAB40;
 	text-align: center;
 	flex-direction: row-reverse;
@@ -282,32 +281,34 @@ i:focus{
 	padding-bottom: 83px;
 }
 
-.border {
+.border{
 	border: 1px solid #FFAB40;
 	border-radius: 2px;
 	padding: 3% 8% 3% 8%;
 	background-color: #E0E0E0;
 }
-.leftListingDiv {
+
+.leftListingDiv{
 	width: 10%;
 	height: 100%;
 	background-color: red;
 	float: left;
 }
-.rightListingDiv {
+
+.rightListingDiv{
 	width: 10%;
 	height: 100%;
 	background-color: red;
 	float: right;
 }
-}
-.listingDiv {
+
+.listingDiv{
 	margin-left: 15%;
 	margin-right: 15%;
 	padding-bottom: 80px;
 }
 
-.centerfav {
+.centerfav{
 	text-align: center;
 }
 
@@ -332,31 +333,37 @@ i:focus{
 }
 
 .updateFormBox{
-
 	padding: 3px;
 }
 
-.terms {
-	margin-left: 50px;
-	margin-right: 50px;
-}
-.policy {
+.terms{
 	margin-left: 50px;
 	margin-right: 50px;
 }
 
-.about {
+.policy{
 	margin-left: 50px;
 	margin-right: 50px;
 }
 
-.md-tab:nth-child(1){background: #FFAB40; }
-.md-tab:nth-child(2){background: #FFAB40; }
-
-#description {
-	color: #424242
+.about{
+	margin-left: 50px;
+	margin-right: 50px;
 }
-md-tabs-canvas.md-center-tabs {
+
+.md-tab:nth-child(1){
+	background: #FFAB40; 
+}
+
+.md-tab:nth-child(2){
+	background: #FFAB40; 
+}
+
+#description{
+	color: #424242;
+}
+
+md-tabs-canvas.md-center-tabs{
 	background-color: #FFAB40;
 }
 
@@ -372,6 +379,8 @@ md-tabs .md-tab{
 	font-size: 19px;
 }
 
-md-card md-card-content {
+md-card md-card-content{
 	padding: 0;
 }
+
+/*end of file*/

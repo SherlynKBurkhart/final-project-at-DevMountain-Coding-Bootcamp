@@ -1,102 +1,106 @@
-<!-- ADD MY LISTING html file -->
+<!-- beginning of file -->
+
+<!-- "ADD LISTING" page -->
 
 
 <div layout="row" layout-sm="column" class="listingDiv">
 
-  <!-- "ADD MY LISTING" FORM -->
+  	<!-- "ADD MY LISTING" form -->
+  	<div flex="100" layout-padding="10" class="border">
 
-  <div flex="100" layout-padding="10" class="border">
+	   	<!-- "ADD MY LISTING" title -->
+	    <div class="addMyListingTitle">Add My Listing
+	    </div>
 
-      <!-- Add My Listing title -->
-    <div class="addMyListingTitle">Add My Listing
-    </div>
+    	<!-- Add My Listing information -->
+      	<form name="userForm">
+        
+      		<!-- "TITLE" -->
+        	<div>
+         		<md-input-container>
+           	 		<label>Title
+            		</label>
+            		<input type="text" ng-model="newListing.title" md-maxlength="30">
+          		</md-input-container>
+        	</div>
 
-    <!-- Add My Listing information -->
-      <form name="userForm">
-        <div>
-         	<md-input-container>
-            <label>Title
-            </label>
-            <input type="text" ng-model="newListing.title" md-maxlength="30">
-            </input>
-          </md-input-container>
-        </div>
-
-        	<!-- street address -->
-        <div layout="row">
-          <md-input-container flex="100">
-            <label>Street Address
-            </label>
-            <input type="text" ng-model="newListing.address.street" md-maxlength="45">
-          </md-input-container>
-        </div>
+        	<!-- "STREET ADDRESS" -->
+        	<div layout="row">
+          		<md-input-container flex="100">
+            		<label>Street Address
+            		</label>
+            		<input type="text" ng-model="newListing.address.street" md-maxlength="45">
+          		</md-input-container>
+        	</div>
          
-          <!-- city, state, zip code row -->
-        <div layout="row">
+          	<!-- city, state, zip code row -->
+        	<div layout="row">
 
-          	<!-- city -->
-          <md-input-container flex="60" flex-sm="50" flex-md="60">
-            <label>City
-            </label>
-            <input type="text" ng-model="newListing.address.city">
-          </md-input-container>
+          		<!-- "CITY" -->
+          		<md-input-container flex="60" flex-sm="50" flex-md="60">
+            		<label>City
+            		</label>
+            		<input type="text" ng-model="newListing.address.city">
+          		</md-input-container>
 
-          	<!-- state -->
-          <md-select placeholder="State" ng-model="newListing.address.state" flex="10" flex-sm="25" flex-md="20">
-            <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}
-            </md-option>
-          </md-select>
+          		<!-- "STATE" -->
+          		<md-select placeholder="State" ng-model="newListing.address.state" flex="10" flex-sm="25" flex-md="20">
+            		<md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}
+            		</md-option>
+          		</md-select>
 
-          	<!-- zip code -->
-          <md-input-container flex="30" flex-sm="25" flex-md="20">
-            <label>Zip Code
-            </label>
-            <input type="text" ng-model="newListing.address.zip">
-          </md-input-container>
-        </div>
+          		<!-- "ZIP CODE" -->
+          		<md-input-container flex="30" flex-sm="25" flex-md="20">
+            		<label>Zip Code
+            		</label>
+            		<input type="text" ng-model="newListing.address.zip">
+          		</md-input-container>
+        	</div>
 
             <!-- garage sale dates -->
-        <div layout="row">
+        	<div layout="row">
 
-            <!-- start date -->
-          <md-input-container flex="33">
-            <label>Start Date
-            </label>
-            <input type="date" ng-model="newListing.startDate">
-          </md-input-container>
+	            <!-- "START DATE" -->
+	          	<md-input-container flex="33">
+	            	<label>Start Date
+	            	</label>
+	            	<input type="date" ng-model="newListing.startDate">
+	          	</md-input-container>
 
-          	<!-- garage sale end date -->
-          <md-input-container flex="33">
-            <label>End Date
-            </label>
-            <input type="date" ng-model="newListing.endDate">
-          </md-input-container>
+	          	<!-- "END DATE" -->
+	          	<md-input-container flex="33">
+	            	<label>End Date
+	            	</label>
+	            	<input type="date" ng-model="newListing.endDate">
+	          	</md-input-container>
 
-            <!-- garage sale time -->
-          <md-input-container flex="33">
-            <label>Start Time
-            </label>
-            <input type="time" ng-model="newListing.time">
-          </md-input-container>
-        </div>
+	            <!-- "START TIME" -->
+	          	<md-input-container flex="33">
+	            	<label>Start Time
+	            	</label>
+	            	<input type="time" ng-model="newListing.time">
+	          	</md-input-container>
+        	</div>
 
-        <div layout="column" layout-sm="column">
 
-            <!-- garage sale description -->
-          <md-input-container>
-            <label>Description
-            </label>
-            <textarea ng-model="newListing.description" columns="1" md-maxlength="300">
-            </textarea>
-          </md-input-container>
+        	<div layout="column" layout-sm="column">
 
-            <!-- submit buttons -->
-          <md-input-container>
-              <md-button class="submitBtn" ng-click="submitListing(newListing, $event)">Submit
-              </md-button>
-          </md-input-container>
-        </div>
-      </form>
-  </md-content>
+            	<!-- "DESCRIPTION" -->
+          		<md-input-container>
+            		<label>Description
+            		</label>
+            		<textarea ng-model="newListing.description" columns="1" md-maxlength="300">
+            		</textarea>
+          		</md-input-container>
+
+            	<!-- "SUBMIT" button -->
+          		<md-input-container>
+              		<md-button class="submitBtn" ng-click="submitListing(newListing, $event)">Submit
+              		</md-button>
+          		</md-input-container>
+        	</div>
+      	</form>
+	</div>
 </div>
-</div>
+
+<!-- end of file -->

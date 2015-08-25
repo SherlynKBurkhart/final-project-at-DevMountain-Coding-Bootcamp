@@ -1,4 +1,4 @@
-// Main directive
+// beginning of file
 
 var app = angular.module('treasureHunters');
 
@@ -51,12 +51,15 @@ app.directive('mainDir', function(){
 				for(var i = 0; i < $scope.theListings.length; i++){
 					if($scope.theListings[i]._id === marker._id){
 						$scope.theListings[i].clicked = true;
-						$scope.theListings[i].icon = 'http://maps.gpsvisualizer.com/google_maps/icons/google/green.png'
-						// instance.setIcon('http://maps.gpsvisualizer.com/google_maps/icons/google/green.png');
+						$scope.theListings[i].icon = 
+							'http://maps.gpsvisualizer.com/google_maps/icons/google/green.png'
+						// instance.setIcon	
+						//('http://maps.gpsvisualizer.com/google_maps/icons/google/green.png');
 					} else {
 						$scope.theListings[i].clicked = false;
-						$scope.theListings[i].icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-						// instance.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+						$scope.theListings[i].icon = 
+							'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+						//instance.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
 					};
 				};
 			};
@@ -67,14 +70,18 @@ app.directive('mainDir', function(){
 				for(var i = 0; i < $scope.theListings.length; i++){
 					if(listing._id !== $scope.theListings[i]._id){
 						$scope.theListings[i].clicked = false;
-						$scope.theListings[i].icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+						$scope.theListings[i].icon = 
+							'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
 					} else {
 						// $scope.theListings[i].clicked = false;
 					}
 				}
 			}
 		},
+
 		link: function(elem, attr, scope){
 		}
 	}
 });
+
+// end of file
